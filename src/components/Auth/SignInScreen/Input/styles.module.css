@@ -1,0 +1,29 @@
+.outlinedInput {
+  width: 375px;
+  margin: 0 0 50px 0;
+}
+.notchedOutline {
+  border-width: 0 !important;
+  background: rgba(0, 0, 0, 0.09);
+  border-radius: 4px 4px 0px 0px;
+}
+.errorLabel {
+  color: #d32f2f !important;
+}
+.label {
+  position: absolute;
+  top: 9px;
+  left: 12px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 12px;
+  color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+.input {
+  width: 100%;
+  padding: 24px 12px 7px 12px !important;
+}
+.button {
+  padding: 11.5px 11.5px 0 0 !important;
+}

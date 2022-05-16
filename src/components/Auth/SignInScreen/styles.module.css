@@ -1,0 +1,58 @@
+.container {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1440px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.logo {
+  margin: 100px auto 38px auto;
+  height: fit-content;
+  cursor: pointer;
+}
+
+.title {
+  margin: 0 0 61px 0;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 280%;
+  letter-spacing: -1.5px;
+  font-family: 'Roboto';
+  color: #000000;
+}
+.img img {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+.rootButton {
+  background: #f50057;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0px 2px 2px rgba(0, 0, 0, 0.14), 0px 1px 5px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 173%;
+  letter-spacing: 0.46px;
+  text-transform: uppercase;
+  width: 375px;
+  height: 42px;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 1s ease;
+}
+
+.rootButton:hover {
+  background: #c50045;
+}
+.rootButton:disabled {
+  opacity: 0.7;
+}

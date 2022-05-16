@@ -7,6 +7,8 @@ import theme from '../../../common/theme';
 import Root from '../Root';
 import { UIContextProvider } from '../UIContext';
 
+fetch('/users');
+
 const App: React.FC = () => {
   return (
     <FirebaseAppProvider firebaseApp={firebaseApp}>
