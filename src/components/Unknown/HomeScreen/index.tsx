@@ -3,18 +3,36 @@ import React, {
   FC,
   MouseEvent,
   SetStateAction,
+  useContext,
+  useMemo,
   useState,
 } from 'react';
 import { Box, Menu, MenuItem } from '@mui/material';
 
 import classes from './style.module.css';
 import appbar from '../../../assets/img/appbar.svg';
+import { UIContext } from '../UIContext';
 
 interface HomeScreenProps {
   setIsLogged: Dispatch<SetStateAction<boolean>>;
+  showAlert: boolean;
+  setFirstTimeLogged: Dispatch<SetStateAction<boolean>>;
 }
 
-const HomeScreen: FC<HomeScreenProps> = ({ setIsLogged }) => {
+const HomeScreen: FC<HomeScreenProps> = ({
+  setIsLogged,
+  showAlert = false,
+  setFirstTimeLogged,
+}) => {
+  const { setAlert } = useContext(UIContext);
+
+  const handleSignIn = useMemo(async () => {
+    setAlert({
+      show: showAlert,
+      severity: 'info',
+      message: 'Welcome on board 🚀',
+    });
+  }, [setAlert, showAlert]);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
   const open = Boolean(anchorEl);
@@ -27,6 +45,8 @@ const HomeScreen: FC<HomeScreenProps> = ({ setIsLogged }) => {
   };
   const logOut = () => {
     setIsLogged(false);
+    localStorage.removeItem('isLogged');
+    setFirstTimeLogged(false);
   };
 
   return (

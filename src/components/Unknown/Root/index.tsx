@@ -1,11 +1,13 @@
 import React, { FC, useEffect, useState } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
+
 import { useUser } from 'reactfire';
 import AuthenticatedLayout from '../AuthenticatedLayout';
 import GuestLayout from '../GuestLayout';
 import HomeScreen from '../HomeScreen';
 import NotFoundScreen from '../NotFoundScreen';
 import SignInScreen from '../../Auth/SignInScreen';
+import RegisterScreen from '../../Auth/RegisterScreen';
 
 const Root: FC = () => {
   // const {
@@ -28,7 +30,11 @@ const Root: FC = () => {
   //   return null;
   // }
 
-  const [isLogged, setIsLogged] = useState<boolean>(false);
+  const [firstTimeLogged, setFirstTimeLogged] = useState(false);
+
+  const [isLogged, setIsLogged] = useState<boolean>(
+    !!localStorage.getItem('isLogged'),
+  );
 
   if (isLogged) {
     return (
@@ -37,9 +43,16 @@ const Root: FC = () => {
           <Route
             exact
             path="/"
-            render={() => <HomeScreen setIsLogged={setIsLogged} />}
+            render={() => (
+              <HomeScreen
+                setIsLogged={setIsLogged}
+                showAlert={firstTimeLogged}
+                setFirstTimeLogged={setFirstTimeLogged}
+              />
+            )}
           />
           <Route exact path="/login" component={() => <Redirect to="/" />} />
+          <Route exact path="/register" component={() => <Redirect to="/" />} />
           <Route path="*" component={NotFoundScreen} />
         </Switch>
       </AuthenticatedLayout>
@@ -52,6 +65,16 @@ const Root: FC = () => {
           exact
           path="/login"
           render={() => <SignInScreen setIsLogged={setIsLogged} />}
+        />
+        <Route
+          exact
+          path="/register"
+          render={() => (
+            <RegisterScreen
+              setFirstTimeLogged={setFirstTimeLogged}
+              setIsLogged={setIsLogged}
+            />
+          )}
         />
         <Redirect to="/login" />
       </Switch>

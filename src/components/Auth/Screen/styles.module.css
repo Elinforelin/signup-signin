@@ -4,6 +4,7 @@
   grid-template-columns: 1fr 1fr;
   max-width: 1440px;
 }
+
 .form {
   display: flex;
   flex-direction: column;
@@ -24,10 +25,17 @@
   font-family: 'Roboto';
   color: #000000;
 }
+.titleRegistration {
+  margin: 0 0 50px 0;
+}
+.img {
+  width: 100%;
+  height: 100%;
+}
 .img img {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   top: 0;
   left: 0;
   object-fit: cover;
@@ -48,11 +56,46 @@
   color: #ffffff;
   cursor: pointer;
   transition: all 1s ease;
+  margin: 0 0 246px 0;
 }
-
+.rootButtonWithMargin {
+  margin: 0 0 39px 0;
+}
 .rootButton:hover {
   background: #c50045;
 }
 .rootButton:disabled {
   opacity: 0.7;
+}
+.subTitle {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 800%;
+  letter-spacing: -1.5px;
+  color: #000000;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.registerBtn {
+  cursor: pointer;
+  margin: -30px 0 0 0;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 169%;
+  letter-spacing: 0.46px;
+  text-transform: uppercase;
+  color: #f50057;
+  background: none;
+  border: none;
+}
+.registerBtn:hover {
+  transition: all 1s ease;
+  color: #c50045;
+}
+@media (max-width: 1270px) {
+  .rootButton {
+    margin: 0 0 60px 0;
+  }
 }
